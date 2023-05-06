@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
+import temp from "../img/temp/profuser 2.png";
 
 export default function Navbar({user}) {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -73,21 +74,22 @@ export default function Navbar({user}) {
                   to="/marketplace"
                   onClick={() => setNavbarOpen(!navbarOpen)}
                 >
-                  For Shoppers
+                  Marketplace
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
                   className={
-                    "mx-6 my-2 flex items-center text-sm font-semibold leading-snug text-[#636363] hover:opacity-75"
+                "mx-6 my-2 py-2 px-6 flex items-center text-sm font-semibold leading-snug hover:opacity-75 bg-[#BD966D] text-white rounded-md"
                   }
                   to="/sell"
                   onClick={() => setNavbarOpen(!navbarOpen)}
                 >
-                  For Farmers
+                  Start Selling
                 </Link>
               </li>
               {user ? (
+                <>
                 <li className="nav-item">
                   <Link
                     className={
@@ -97,10 +99,24 @@ export default function Navbar({user}) {
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
                     {" "}
-                    <i className="fa-regular fa-circle-user text-lg"></i>
-                    &nbsp;Account{" "}
+                    <img
+                    //TODO: change src to user profile pic
+                      src={temp}
+                      className="w-11 h-11 rounded-full hidden lg:block"
+                    />
                   </Link>
                 </li>
+                <li className="nav-item">
+                <Link
+                  className="px-3 py-2 flex items-center text-lg font-semibold leading-snug text-[#2f2e41] hover:opacity-75"
+                  to="/"
+                  // onClick={handleLogout}
+                >
+                  <i className="fa-solid fa-right-from-bracket text-2xl hidden lg:block "></i>
+                  <span className="text-left block lg:hidden">Logout</span>
+                </Link>
+              </li>
+              </>
               ) : (
                 <>
                 <li className="nav-item">
@@ -123,17 +139,6 @@ export default function Navbar({user}) {
                   onClick={() => setNavbarOpen(!navbarOpen)}
                 >
                   Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className={
-                "mx-6 my-2 py-2 px-6 flex items-center text-sm font-semibold leading-snug hover:opacity-75 bg-[#BD966D] text-white rounded-md"
-                  }
-                  to="/sell"
-                  onClick={() => setNavbarOpen(!navbarOpen)}
-                >
-                  Start Selling
                 </Link>
               </li>
               </>

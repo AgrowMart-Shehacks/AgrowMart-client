@@ -1,16 +1,11 @@
 import React from "react";
-
 import MultiSlider from "../components/MultiSlider";
 
 import banner from "../img/banner.svg";
 import home1 from "../img/home1.svg";
 import home2 from "../img/home2.svg";
-import fruits from "../img/fruits.svg";
-import dryfruits from "../img/dryfruits.svg";
-import vegetables from "../img/vegetables.svg";
-import dairy from "../img/dairy.svg";
-import livestock from "../img/livestock.svg";
-import seeds from "../img/seeds.svg";
+import CategorySection from "../components/CategorySection";
+import { useNavigate } from "react-router-dom";
 
 const reviews = [
   {
@@ -36,6 +31,13 @@ const reviews = [
 ];
 
 export default function Home() {
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/category/fruits`,{state:{name:'fruits'}});
+  };
+  
   return (
     <div className="m-auto w-[90%]">
       <img
@@ -81,7 +83,8 @@ export default function Home() {
               <p className="text-md md:text-lg lg:text-xl mt-4 md:mt-6 font-thin">
                 Buy Directly from Farmers anywhere in our country, at anytime
               </p>
-              <button className="text-md md:text-lg font-semibold text-white mt-4 md:mt-6 px-6 py-2 bg-[#BD966D] rounded-md">
+              <button className="text-md md:text-lg font-semibold text-white mt-4 md:mt-6 px-6 py-2 bg-[#BD966D] rounded-md"
+              onClick={handleClick}>
                 Go to Marketplace
               </button>
             </div>
@@ -143,68 +146,13 @@ export default function Home() {
         <h1 className="text-2xl md:text-4xl font-bold text-center">
           Shop By Category
         </h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mt-16">
-          <div className="shadow-lg hover:shadow-xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">Fruits</h1>
-            <img
-              src={fruits}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-          <div className="shadow-lg hover:shadow-xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">
-              Vegetables
-            </h1>
-            <img
-              src={vegetables}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-          <div className="shadow-lg hover:shadow-xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">Dairy</h1>
-            <img
-              src={dairy}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-          <div className="shadow-lg hover:shadow-xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">
-              Dry Fruits
-            </h1>
-            <img
-              src={dryfruits}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-          <div className="shadow-lg hover:shadow-xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">
-              Livestock
-            </h1>
-            <img
-              src={livestock}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-          <div className="shadow-xl hover:shadow-2xl cursor-pointer">
-            <h1 className="text-center mt-6 mb-8 text-2xl font-bold">Seeds</h1>
-            <img
-              src={seeds}
-              alt="fruits"
-              className="m-auto max-w-[80%] max-h-28 mb-8"
-            />
-          </div>
-        </div>
+        <CategorySection/>
       </div>
 
       <div className="mt-16 md:mt-24">
         <h1 className="text-2xl md:text-4xl font-bold text-center">Reviews</h1>
         <div className="mt-16">
-          <MultiSlider items={reviews} review={true}/>
+          <MultiSlider items={reviews} review={true} />
         </div>
       </div>
     </div>

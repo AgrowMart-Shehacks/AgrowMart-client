@@ -4,11 +4,11 @@ import logo from "../img/logo.png";
 export default function Footer() {
   return (
     <div className="bg-[#F8F8F8] mt-24">
-      <div className="flex flex-row pt-12 pb-12 lg:px-32">
+      <div className="flex flex-col md:flex-row items-center pt-12 pb-12 lg:px-32">
         <div className="basis-1/3 flex flex-col m-auto justify-center">
           <img src={logo} alt="logo" className="h-8 w-24" />
         </div>
-        <div className="basis-1/3">
+        <div className="basis-1/3 mt-10 md:mt-0">
           <h1 className="text-lg font-bold mb-2">Contact</h1>
           <div className="text-sm text-[#473E3E]">
             <p className="mb-1 cursor-pointer">
@@ -25,7 +25,7 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="basis-1/3">
+        <div className="basis-1/3 hidden md:block">
           <h1 className="text-lg font-bold mb-2">Links</h1>
           <div className="text-sm text-[#473E3E]">
             <p className="mb-1 cursor-pointer">Farmers</p>
@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="text-[#3B8056] basis-1/2 text-center text-base md:text-lg">
           <i className="fa-brands fa-facebook mr-6"></i>
           <i className="fa-brands fa-instagram mr-6"></i>
-          <i class="fa-brands fa-twitter"></i>
+          <i className="fa-brands fa-twitter"></i>
         </div>
       </div>
     </div>
